@@ -1,0 +1,7 @@
+LDAP_ADMIN_PASSWORD=password
+LDAP_ORGANISATION=Sleede
+LDAP_DOMAIN=sleede.com
+LDAP_TLS_CRT_FILENAME=live/ldap.sleede.com/sleede.crt
+LDAP_TLS_KEY_FILENAME=live/ldap.sleede.com/sleede.key
+LDAP_TLS_CA_CRT_FILENAME=live/ldap.sleede.com/sleede.crt
+LDAP_TLS_VERIFY_CLIENT=try

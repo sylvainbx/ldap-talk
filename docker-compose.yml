@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  openldap:
+    image: osixia/openldap
+    ports:
+      - '389:389'
+      - '636:636'
+    env_file:
+      - ./config/env
+    volumes:
+      - ./data:/var/lib/ldap
+      - ./slapd.d:/etc/ldap/slapd.d
+      - ./letsencrypt/etc:/container/service/slapd/assets/certs
+    hostname: 'ldap.sleede.com'
+    restart: always
+    networks:
+      openldap:
+        ipv4_address: 172.29.0.2
+
+networks:
+  openldap:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/16
+          gateway: 172.29.0.1
