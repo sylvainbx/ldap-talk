@@ -3,14 +3,14 @@
 1. Regarder le fichier docker-compose
 2. Regarder le fichier config/env
 3. Les certificats sont auto-signés pour la démo
-4. docker-compose up -d
-5. ls (ça a créé data et slap.d)
+4. `docker-compose up -d`
+5. `ls` (on peut voir que les dossiers data et slap.d ont été créés)
 6. regarder le naming context créé depuis le bash:
 ```bash
 docker-compose exec openldap bash
 ldapsearch -x -LLL -s base -b "" namingContexts
 ```
-7. se connecter avec Apache Directory Studio
+7. se connecter avec [Apache Directory Studio](http://directory.apache.org/studio/)
   - Paramètres réseau
   - Authentification
 8. dc=sleede,dc=com 
@@ -25,7 +25,7 @@ ldapsearch -x -LLL -s base -b "" namingContexts
   - inetOrgPerson
   - RDN: uid=cyril.dupont
   - cn (Common Name): Cyril, sn (Surname): Dupont
-  => Terminer
+  - Terminer
 9. uid=cyril.dupont,ou=people,dc=sleede,dc=com
   - clic droit, Nouvel attribut
   - jpegPhoto
@@ -87,7 +87,7 @@ ldapsearch -LLLQY EXTERNAL -H ldapi:/// -b cn=schema,cn=config "(objectClass=olc
   
   # view generated file
   cat ldif/cn\=config/cn\=schema/cn\=\{12\}sleede.ldif
-  # finally change header and remove bottom lines
+  # finally, change header, remove bottom lines, remove objects order (eg. {1})
 ```
 
 >  Mais on va plutôt l'écrire à la main
